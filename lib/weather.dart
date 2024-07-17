@@ -63,8 +63,11 @@ class design extends StatelessWidget {
                     color: Colors.grey,
                   ),
                   child: LottieBuilder.network(
-                      height: 500,
+                      height: 50,
                       "https://lottie.host/0a76d3b8-fddd-47f0-9086-acb9826f8cff/kn2Y95kFR5.json"),
+                ),
+                SizedBox(
+                  height: 40,
                 ),
                 Text(
                     style: TextStyle(
@@ -73,18 +76,20 @@ class design extends StatelessWidget {
                         color: Colors.yellow),
                     "20\u2103"),
                 SizedBox(
-                  height: 20,
+                  height: 60,
                 ),
                 Text(
                     style: TextStyle(
                         fontFamily: AutofillHints.birthday,
                         fontSize: 20,
+                        fontWeight: FontWeight.bold,
                         color: Colors.white),
                     "GOOD NIGHT"),
                 Text(
                     style: TextStyle(
                         fontFamily: AutofillHints.birthday,
                         fontSize: 20,
+                        fontWeight: FontWeight.bold,
                         color: Colors.white),
                     "NAZIYA")
               ],
