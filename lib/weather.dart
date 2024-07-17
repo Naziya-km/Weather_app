@@ -10,12 +10,23 @@ class design extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 230, 237, 96),
+        backgroundColor: Color.fromRGBO(172, 178, 53, 1),
         centerTitle: true,
-        title: Text('WEATHERAPP'),
-        leading: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.cloud_done),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.cloud),
+            ),
+            Text(
+                style: TextStyle(
+                    fontFamily: AutofillHints.birthday,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Colors.black),
+                'WEATHERAPP'),
+          ],
         ),
         actions: [
           IconButton(
@@ -28,6 +39,8 @@ class design extends StatelessWidget {
       body: Stack(
         children: [
           Container(
+            decoration: BoxDecoration(
+                gradient: RadialGradient(colors: Colors.primaries)),
             height: size.height,
             width: size.width,
             child: Image.network(
@@ -75,9 +88,6 @@ class design extends StatelessWidget {
                         fontSize: 100,
                         color: Colors.yellow),
                     "20\u2103"),
-                SizedBox(
-                  height: 60,
-                ),
                 Text(
                     style: TextStyle(
                         fontFamily: AutofillHints.birthday,
@@ -91,7 +101,77 @@ class design extends StatelessWidget {
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
-                    "NAZIYA")
+                    "NAZIYA"),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(padding: EdgeInsets.all(20)),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.sunny_snowing),
+                        ),
+                        Text(
+                            style: TextStyle(
+                                fontFamily: AutofillHints.birthday,
+                                color: Colors.white),
+                            "sunrise"),
+                        Text(
+                            style: TextStyle(
+                                fontFamily: AutofillHints.birthday,
+                                color: Colors.white),
+                            "7:00"),
+                      ],
+                    ),
+                    SizedBox(
+                      width: 50,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          children: [
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.wind_power),
+                            ),
+                            Text(
+                                style: TextStyle(
+                                    fontFamily: AutofillHints.birthday,
+                                    color: Colors.white),
+                                "Wind    "),
+                            Text(
+                                style: TextStyle(
+                                    fontFamily: AutofillHints.birthday,
+                                    color: Colors.white),
+                                "4m/s "),
+                          ],
+                        ),
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(Icons.thermostat),
+                        ),
+                        Text(
+                            style: TextStyle(
+                                fontFamily: AutofillHints.birthday,
+                                color: Colors.white),
+                            "Temparture      "),
+                        Text(
+                            style: TextStyle(
+                                fontFamily: AutofillHints.birthday,
+                                color: Colors.white),
+                            "23\u2103")
+                      ],
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
