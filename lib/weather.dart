@@ -91,17 +91,18 @@ class design extends StatelessWidget {
                 Text(
                     style: TextStyle(
                         fontFamily: AutofillHints.birthday,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
                         color: Colors.white),
                     "GOOD NIGHT"),
                 Text(
                     style: TextStyle(
                         fontFamily: AutofillHints.birthday,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
                         color: Colors.white),
                     "NAZIYA"),
+                SizedBox(
+                  height: 25,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -112,6 +113,7 @@ class design extends StatelessWidget {
                         IconButton(
                           onPressed: () {},
                           icon: Icon(Icons.sunny_snowing),
+                          color: Colors.white,
                         ),
                         Text(
                             style: TextStyle(
@@ -136,12 +138,13 @@ class design extends StatelessWidget {
                             IconButton(
                               onPressed: () {},
                               icon: Icon(Icons.wind_power),
+                              color: Colors.white,
                             ),
                             Text(
                                 style: TextStyle(
                                     fontFamily: AutofillHints.birthday,
                                     color: Colors.white),
-                                "Wind    "),
+                                "Wind"),
                             Text(
                                 style: TextStyle(
                                     fontFamily: AutofillHints.birthday,
@@ -151,18 +154,23 @@ class design extends StatelessWidget {
                         ),
                       ],
                     ),
+                    SizedBox(
+                      width: 50,
+                    ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         IconButton(
                           onPressed: () {},
                           icon: Icon(Icons.thermostat),
+                          color: Colors.white,
                         ),
                         Text(
                             style: TextStyle(
                                 fontFamily: AutofillHints.birthday,
                                 color: Colors.white),
-                            "Temparture      "),
+                            "Temparture"),
                         Text(
                             style: TextStyle(
                                 fontFamily: AutofillHints.birthday,
