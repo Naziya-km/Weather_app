@@ -1,9 +1,38 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:lottie/lottie.dart';
+import 'package:http/http.dart' as http;
 
-class design extends StatelessWidget {
+class design extends StatefulWidget {
   const design({super.key});
+
+  @override
+  State<design> createState() => _designState();
+}
+
+class _designState extends State<design> {
+  @override
+  void initState() {
+    getweather();
+    // TODO: implement initState
+    super.initState();
+  }
+
+  var weather;
+
+  void getweather() async {
+    String url =
+        ("http://api.weatherapi.com/v1/current.json?key=6405a9820def485f80755634241807&q=kochi");
+    var res = await http.get(Uri.parse(url));
+    var data = jsonDecode(res.body);
+    print(data);
+    setState(() {
+      weather = data;
+    });
+    print(data);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +68,7 @@ class design extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(
-                gradient: RadialGradient(colors: Colors.primaries)),
+            decoration: BoxDecoration(),
             height: size.height,
             width: size.width,
             child: Image.network(
@@ -51,21 +79,23 @@ class design extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                    style: TextStyle(
-                        fontFamily: AutofillHints.birthday,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 45,
-                        color: Colors.white),
-                    "KARACHI"),
+                  weather["location"]["name"],
+                  style: TextStyle(
+                      fontFamily: AutofillHints.birthday,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 45,
+                      color: Colors.white),
+                ),
                 SizedBox(
                   height: 40,
                 ),
                 Text(
-                    style: TextStyle(
-                        fontFamily: AutofillHints.countryCode,
-                        fontSize: 20,
-                        color: Colors.yellow),
-                    "MONDAY 7:30 PM"),
+                  weather["location"]["localtime"].toString(),
+                  style: TextStyle(
+                      fontFamily: AutofillHints.countryCode,
+                      fontSize: 20,
+                      color: Colors.yellow),
+                ),
                 SizedBox(
                   height: 50,
                 ),
@@ -83,23 +113,26 @@ class design extends StatelessWidget {
                   height: 40,
                 ),
                 Text(
-                    style: TextStyle(
-                        fontFamily: AutofillHints.birthday,
-                        fontSize: 100,
-                        color: Colors.yellow),
-                    "20\u2103"),
+                  weather["current"]["temp_c"].toString(),
+                  style: TextStyle(
+                      fontFamily: AutofillHints.birthday,
+                      fontSize: 100,
+                      color: Colors.yellow),
+                ),
                 Text(
-                    style: TextStyle(
-                        fontFamily: AutofillHints.birthday,
-                        fontSize: 15,
-                        color: Colors.white),
-                    "GOOD NIGHT"),
+                  weather["current"]["condition"]["text"],
+                  style: TextStyle(
+                      fontFamily: AutofillHints.birthday,
+                      fontSize: 15,
+                      color: Colors.white),
+                ),
                 Text(
-                    style: TextStyle(
-                        fontFamily: AutofillHints.birthday,
-                        fontSize: 15,
-                        color: Colors.white),
-                    "NAZIYA"),
+                  weather["current"]["condition"]["code"].toString(),
+                  style: TextStyle(
+                      fontFamily: AutofillHints.birthday,
+                      fontSize: 15,
+                      color: Colors.white),
+                ),
                 SizedBox(
                   height: 25,
                 ),
@@ -141,10 +174,12 @@ class design extends StatelessWidget {
                               color: Colors.white,
                             ),
                             Text(
-                                style: TextStyle(
-                                    fontFamily: AutofillHints.birthday,
-                                    color: Colors.white),
-                                "Wind"),
+                              weather["current"]["condition"]["wind_mph"]
+                                  .toString(),
+                              style: TextStyle(
+                                  fontFamily: AutofillHints.birthday,
+                                  color: Colors.white),
+                            ),
                             Text(
                                 style: TextStyle(
                                     fontFamily: AutofillHints.birthday,
@@ -167,10 +202,11 @@ class design extends StatelessWidget {
                           color: Colors.white,
                         ),
                         Text(
-                            style: TextStyle(
-                                fontFamily: AutofillHints.birthday,
-                                color: Colors.white),
-                            "Temparture"),
+                          weather["current"]["temp_f"].toString(),
+                          style: TextStyle(
+                              fontFamily: AutofillHints.birthday,
+                              color: Colors.white),
+                        ),
                         Text(
                             style: TextStyle(
                                 fontFamily: AutofillHints.birthday,
